@@ -1,0 +1,32 @@
+.url-container {
+    display: flex;
+    gap: 8px; 
+    margin-bottom: 32px;
+}
+
+.url-container input {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 1.1rem;
+    border: 2px solid #146EB4;
+    border-radius: 24px;
+    outline: none;
+
+}
+
+.url-container button {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: #FF9900;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.603);
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+}
+
+.url-container button:hover {
+    transform: scale(1.1);
+}

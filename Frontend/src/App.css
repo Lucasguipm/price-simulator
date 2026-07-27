@@ -1,0 +1,29 @@
+body {
+    background-color: #05A0D1;
+}
+
+.app-container {
+    background-color: #146fb400;
+    max-width: 1300px;
+    height: 120vh;
+    margin: 0 auto;
+    padding: 24px;
+    font-family: sans-serif;
+
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+
+}
+
+.column-card {
+    background-color: rgba(165, 42, 42, 0);
+}
+
+.column-charts {
+    background-color: rgba(165, 42, 42, 0);
+    
+}
