@@ -19,7 +19,7 @@ function App() {
     setError('');
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/analyze', { url });
+      const response = await axios.post('https://price-simulator-lgpm.vercel.app/api/analyze', { url });
       setProductData(response.data);
     } catch (err) {
       console.error(err);
