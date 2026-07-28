@@ -10,7 +10,11 @@
     height: 100vh;
     
 }
-
+@media  (min-width: 1400px) {
+    .card-container {
+        height: fit-content;
+    }
+}
 .card-container h2 {
     font-size: 1.9rem;
     max-height: 100px;

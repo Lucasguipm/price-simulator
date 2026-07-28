@@ -45,16 +45,43 @@ def get_amazon_product_details(url):
 
         # 3. Preço Atual
         price = None
-        price_element = soup.find("span", class_="a-offscreen")
+    
+        # Lista de seletores comuns de preço na Amazon
+        price_selectors = [
+            ("span", {"class": "a-offscreen"}),
+            ("span", {"class": "a-price-whole"}),
+            ("span", {"id": "priceblock_ourprice"}),
+            ("span", {"id": "priceblock_dealprice"}),
+            ("div", {"id": "corePrice_feature_div"})
+        ]
+
+        for tag, attrs in price_selectors:
+            price_element = soup.find(tag, attrs)
+            if price_element:
+                raw_price = price_element.get_text(strip=True)
+                # Busca apenas o primeiro número decimal válido na string (ex: "59,90" ou "59.90")
+                match = re.search(r'(\d+[\.,]\d{2})', raw_price)
+                if match:
+                    price_str = match.group(1).replace(',', '.')
+                    try:
+                        price = float(price_str)
+                        if price > 0:
+                            break # Encontrou um preço válido, sai do loop
+                    except ValueError:
+                        continue
+
+
+        # price = None
+        # price_element = soup.find("span", class_="a-offscreen")
         
-        if price_element:
-            raw_price = price_element.get_text(strip=True)
-            cleaned_price = re.sub(r'[^\d,]', '', raw_price).replace(',', '.')
-            if cleaned_price:
-                try:
-                    price = float(cleaned_price)
-                except ValueError:
-                    price = None
+        # if price_element:
+        #     raw_price = price_element.get_text(strip=True)
+        #     cleaned_price = re.sub(r'[^\d,]', '', raw_price).replace(',', '.')
+        #     if cleaned_price:
+        #         try:
+        #             price = float(cleaned_price)
+        #         except ValueError:
+        #             price = None
 
         # Fallback de segurança caso o preço estivesse oculto/indisponível
         if not price:
