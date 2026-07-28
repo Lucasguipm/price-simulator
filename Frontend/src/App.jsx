@@ -42,7 +42,7 @@ function App() {
           onSearch={handleSearch}
         />
 
-        {error && <p style={{ color: '#dc2626', textAlign: 'center' }}>{error}</p>}
+        {error && <p style={{ color: '#ffffff', textAlign: 'center' }}>{error}</p>}
 
         {/* 2. CONTEÚDO PRINCIPAL (DASHBOARD EM 2 COLUNAS) */}
         {productData && (
