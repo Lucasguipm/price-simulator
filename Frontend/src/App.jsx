@@ -23,7 +23,12 @@ function App() {
       setProductData(response.data);
     } catch (err) {
       console.error(err);
-      setError('Erro ao buscar informações. Verifique a URL e tente novamente.');
+      // Pega a mensagem de erro que o Flask enviou no jsonify ou a mensagem do Axios
+      const errorMessage = err.response?.data?.error || 'Erro ao buscar informações. Verifique a URL e tente novamente.';
+      setError(errorMessage);
+
+      // console.error(err);
+      // setError('Erro ao buscar informações. Verifique a URL e tente novamente.');
     } finally {
       setLoading(false);
     }

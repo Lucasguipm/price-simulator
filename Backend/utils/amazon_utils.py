@@ -23,7 +23,7 @@ def get_amazon_product_details(url):
 
     try:
         session = requests.Session()
-        response = session.get(url, headers=headers, timeout=10)
+        response = session.get(url, headers=headers, timeout=8)
         
         print(f"[DEBUG] Status Code Amazon: {response.status_code}") # Log para acompanharmos no terminal
 

@@ -1,3 +1,9 @@
+import sys
+import os
+
+# Adiciona o diretório atual do arquivo (Backend) ao PYTHONPATH
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from utils.amazon_utils import extract_asin, get_amazon_product_details
