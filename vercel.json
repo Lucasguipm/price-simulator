@@ -4,24 +4,23 @@
     {
       "src": "Frontend/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
+      "config": {
+        "distDir": "dist"
+      }
     },
     {
       "src": "Backend/app.py",
       "use": "@vercel/python"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "Backend/app.py"
+      "source": "/api/(.*)",
+      "destination": "Backend/app.py"
     },
     {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "Frontend/dist/index.html"
+      "source": "/(.*)",
+      "destination": "/Frontend/$1"
     }
   ]
 }
